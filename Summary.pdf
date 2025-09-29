@@ -1,0 +1,59 @@
+1. Introduction and Data Overview
+The objective of this analysis was to explore the train.csv (Titanic) dataset using statistical methods and visualization tools (Pandas, Matplotlib, Seaborn) to uncover key patterns and relationships, particularly concerning survival.
+
+Data Quality Assessment
+Observations: The dataset contains 891 entries.
+
+Missing Data: Cabin (High missing values: 77%), Age (20% missing), and Embarked (2 missing values).
+
+Data Cleaning: Cabin was dropped. Age was imputed with the median. Embarked was imputed with the mode ('S'). Irrelevant identifiers (PassengerId, Name, Ticket) were dropped for the core analysis.
+
+2. Key Findings: Survival Factors
+A. Univariate Analysis
+Survival Rate (Target): Only 38.4% of the passengers in the training set survived (Survived=1), indicating a significant majority (61.6%) perished.
+
+Passenger Class (Pclass): The 3rd class was the most numerous group by far, followed by 1st class, and then 2nd class.
+
+Age Distribution: The age distribution is slightly right-skewed, centered around the median age of 28. A large number of younger passengers (around 20-35) are observed, along with a distinct peak for infants/young children.
+
+Fare Distribution: The fare is highly right-skewed, suggesting most passengers paid low fares, with a few high-cost outliers (first-class passengers).
+
+B. Bivariate Analysis: Survival Correlation
+The following variables showed the strongest correlation with survival, following the "Women and Children First" policy:
+
+Gender (Sex): This is the strongest predictor.
+
+Survival Rate for Females: Approximately 74%
+
+Survival Rate for Males: Approximately 19%
+
+Observation: Females were overwhelmingly more likely to survive than males.
+
+Passenger Class (Pclass): Class played a crucial role, reflecting socio-economic status and location on the ship.
+
+Survival Rate (approx.): 1st Class (~63%) > 2nd Class (~47%) > 3rd Class (~24%).
+
+Observation: Passengers in higher classes (1st and 2nd) had a significantly better chance of survival.
+
+Age (Age):
+
+Observation: The density plots show that the "Survived" distribution has a slightly higher density around the 0-10 age group compared to the "Not Survived" distribution, confirming that children had a higher chance of survival. The majority of the "Not Survived" density is centered around young adults (20s-30s).
+
+Port of Embarkation (Embarked):
+
+Passengers from Cherbourg (C) had the highest survival rate (~55%), followed by Queenstown (Q, ~39%), and Southampton (S, ~34%).
+
+C. Multivariate Analysis: Correlation Heatmap
+The correlation matrix highlighted the relationships between key features:
+
+Feature	Correlation with Survived	Finding
+Sex (Encoded)	+0.54 (Strong Positive)	Being female strongly correlates with survival.
+Fare	+0.26 (Moderate Positive)	Higher fare (associated with 1st Class) correlates with survival.
+Parch	+0.08	Having parents/children slightly correlates with survival.
+SibSp	-0.04	Having siblings/spouses slightly negatively correlates with survival.
+Age	-0.06 (Weak Negative)	Age is not a strong linear predictor, but older passengers were slightly less likely to survive.
+Pclass	-0.34 (Strong Negative)	Being in a higher class (Pclass 1 is lower value) strongly correlates with survival.
+
+Export to Sheets
+3. Conclusion
+The Exploratory Data Analysis confirmed the widely known historical findings: the key factors determining survival on the Titanic were Gender (females were prioritized), Socio-Economic Status (higher Pclass passengers survived at higher rates), and to a lesser extent, Age (infants and children had a survival advantage). The analysis provides a strong foundation for future predictive modeling.
